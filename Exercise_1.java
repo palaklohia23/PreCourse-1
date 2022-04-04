@@ -8,29 +8,54 @@ class Stack {
     boolean isEmpty() 
     { 
         //Write your code here 
+        if (a.length == 0 )
+        return true;
+        else 
+        return false;
     } 
 
     Stack() 
     { 
         //Initialize your constructor 
+        this.a = a;
+        this.top = -1;
     } 
   
     boolean push(int x) 
     { 
         //Check for stack Overflow
         //Write your code here
+        if (isFull())
+        {
+            System.out.println("Overflow\nProgram Terminated\n");
+            return false;
+        }
+        a[++top] = x;
+        return true;
+        
     } 
   
     int pop() 
     { 
         //If empty return 0 and print " Stack Underflow"
         //Write your code here
+         if (isEmpty())
+        {
+            System.out.println("Underflow\nProgram Terminated");
+            System.exit(-1);
+        }
+        return a[top--];
     } 
   
     int peek() 
     { 
         //Write your code here
+        return a[top];
     } 
+    
+    public boolean isFull() {
+        return top == MAX - 1;     // or return size() == capacity;
+    }
 } 
   
 // Driver code 
